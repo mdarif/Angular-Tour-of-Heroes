@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Hero } from '../hero';
+import { HEROES } from '../mock-heroes';
 
 /**
  * @Component is a decorator function that specifies the Angular
@@ -27,8 +28,5 @@ export class HeroesComponent {
    * Refactor the component's hero property to be of type 'Hero'.
    * Initialize it with an id of 1 and the name 'Windstorm'.
    */
-  hero: Hero = {
-    id: 1,
-    name: 'Windstorm',
-  };
+  heroes = HEROES;
 }

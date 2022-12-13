@@ -15,13 +15,22 @@ import { HeroesComponent } from './heroes/heroes.component';
  * usually called 'AppModule'.
  */
 @NgModule({
+  // The set of components, directives, and pipes that belong to this module.
   declarations: [AppComponent, HeroesComponent],
   /**
+   * imports: The set of NgModules whose exported declarables are available
+   * to templates in this module.
+   *
    * Add 'FormsModule' to the 'imports' array in @NgModule.
    * The 'imports' array contains the list of external modules that the application needs.
    */
   imports: [BrowserModule, AppRoutingModule, FormsModule],
+  // The set of injectable objects that are available in the injector of this module.
   providers: [],
+  /**
+   * The set of components that are bootstrapped when this module is bootstrapped.
+   * The components listed here are automatically added to entryComponents.
+   */
   bootstrap: [AppComponent],
 })
 export class AppModule {}
