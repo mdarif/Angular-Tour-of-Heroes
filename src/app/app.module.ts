@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 /**
  * NgModules configure the injector and the compiler and help
@@ -16,7 +17,7 @@ import { HeroesComponent } from './heroes/heroes.component';
  */
 @NgModule({
   // The set of components, directives, and pipes that belong to this module.
-  declarations: [AppComponent, HeroesComponent],
+  declarations: [AppComponent, HeroesComponent, HeroDetailComponent],
   /**
    * imports: The set of NgModules whose exported declarables are available
    * to templates in this module.
