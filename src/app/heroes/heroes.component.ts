@@ -24,9 +24,13 @@ import { HEROES } from '../mock-heroes';
   styleUrls: ['./heroes.component.css'],
 })
 export class HeroesComponent {
-  /**
-   * Refactor the component's hero property to be of type 'Hero'.
-   * Initialize it with an id of 1 and the name 'Windstorm'.
-   */
+  // The component's public interface is defined by its public properties.
   heroes = HEROES;
+
+  // selectedHero is a property of the HeroesComponent class.
+  selectedHero?: Hero;
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+  }
 }
