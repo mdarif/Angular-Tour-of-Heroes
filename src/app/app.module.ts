@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { MessagesComponent } from './messages/messages.component';
 
 /**
  * NgModules configure the injector and the compiler and help
@@ -17,7 +18,12 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
  */
 @NgModule({
   // The set of components, directives, and pipes that belong to this module.
-  declarations: [AppComponent, HeroesComponent, HeroDetailComponent],
+  declarations: [
+    AppComponent,
+    HeroesComponent,
+    HeroDetailComponent,
+    MessagesComponent,
+  ],
   /**
    * imports: The set of NgModules whose exported declarables are available
    * to templates in this module.

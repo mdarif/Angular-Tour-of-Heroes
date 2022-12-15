@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Hero } from './hero';
+import { MessageService } from './message.service';
 import { HEROES } from './mock-heroes';
 
 /**
@@ -27,10 +28,21 @@ import { HEROES } from './mock-heroes';
  * isn't used.
  */
 export class HeroService {
-  constructor() {}
+  /**
+   * Edit the constructor with a parameter that declares a private
+   * messageService property. Angular injects the singleton MessageService
+   * into that property when it creates the HeroService.
+   */
+  constructor(private messageService: MessageService) {}
+  /**
+   * 👆 This is an example of a typical service-in-service scenario in which
+   * you inject the MessageService into the HeroService which is injected
+   * into the HeroesComponent.
+   */
 
   getHeroes(): Observable<Hero[]> {
     const heroes = of(HEROES); // of(HEROES) returns an Observable<Hero[]> that emits a single value, the array of mock heroes.
+    this.messageService.add('HeroService: fetched heroes');
     return heroes;
   }
 }
