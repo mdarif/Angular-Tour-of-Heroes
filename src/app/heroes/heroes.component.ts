@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Hero } from '../hero';
-import { HEROES } from '../mock-heroes';
+import { HeroService } from '../hero.service';
 
 /**
  * @Component is a decorator function that specifies the Angular
@@ -25,12 +25,49 @@ import { HEROES } from '../mock-heroes';
 })
 export class HeroesComponent {
   // The component's public interface is defined by its public properties.
-  heroes = HEROES;
+  heroes: Hero[] = [];
 
   // selectedHero is a property of the HeroesComponent class.
   selectedHero?: Hero;
 
+  /**
+   * Inject the HeroService
+   *
+   * Add a private heroService parameter of type HeroService to the constructor.
+   */
+
+  constructor(private heroService: HeroService) {}
+  // The parameter simultaneously defines a private heroService property and
+  // identifies it as a HeroService injection site.
+
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
+  }
+
+  /**
+   * Add getHeroes()
+   *
+   * Create a method to retrieve the heroes from the service.
+   */
+
+  getHeroes(): void {
+    /**
+     * The HeroService.getHeroes() method has a synchronous signature,
+     * which implies that the HeroService can fetch heroes synchronously.
+     */
+    this.heroes = this.heroService.getHeroes();
+  }
+
+  /**
+   * While you could call getHeroes() in the 'constructor', that's not the
+   * best practice.
+   *
+   * Reserve the constructor for minimal initialization such as wiring
+   * constructor parameters to properties. The constructor shouldn't do
+   * anything. It certainly shouldn't call a function that makes HTTP
+   * requests to a remote server as a real data service would.
+   */
+  ngOnInit(): void {
+    this.getHeroes();
   }
 }
