@@ -52,10 +52,18 @@ export class HeroesComponent {
 
   getHeroes(): void {
     /**
-     * The HeroService.getHeroes() method has a synchronous signature,
+     * OLD: The HeroService.getHeroes() method has a synchronous signature,
      * which implies that the HeroService can fetch heroes synchronously.
      */
-    this.heroes = this.heroService.getHeroes();
+    // this.heroes = this.heroService.getHeroes();
+
+    /**
+     * NEW: The HeroService.getHeroes() method has an asynchronous signature.
+     * It returns a mock heroes as an Observable, using the RxJS of() function.
+     * Now the method returns an Observable<Hero[]>.
+     */
+    this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
+    // Observable.subscribe() is the critical difference.
   }
 
   /**
