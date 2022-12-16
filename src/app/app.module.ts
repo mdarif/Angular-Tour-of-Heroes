@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 /**
  * NgModules configure the injector and the compiler and help
@@ -23,6 +24,7 @@ import { MessagesComponent } from './messages/messages.component';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
+    DashboardComponent,
   ],
   /**
    * imports: The set of NgModules whose exported declarables are available

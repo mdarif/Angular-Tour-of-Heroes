@@ -29,7 +29,7 @@ export class HeroesComponent {
   heroes: Hero[] = [];
 
   // selectedHero is a property of the HeroesComponent class.
-  selectedHero?: Hero;
+  // selectedHero?: Hero;
 
   /**
    * Inject the HeroService
@@ -38,16 +38,16 @@ export class HeroesComponent {
    */
 
   constructor(
-    private heroService: HeroService,
-    private messageService: MessageService
-  ) {}
+    private heroService: HeroService
+  ) // private messageService: MessageService
+  {}
   // The parameter simultaneously defines a private heroService property and
   // identifies it as a HeroService injection site.
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
-  }
+  // onSelect(hero: Hero): void {
+  //   this.selectedHero = hero;
+  //   this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
+  // }
 
   /**
    * Add getHeroes()
